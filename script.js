@@ -1,52 +1,49 @@
-const url="https://script.google.com/macros/s/AKfycbyQdDWRX5nAaDxJUfSSjb3uLujlHyE0EHA135BMnmDo23DIlDl8l43RKUIFLIeB9gKWXQ/exec";
+const url = "https://script.google.com/macros/s/AKfycbyQdDWRX5nAaDxJUfSSjb3uLujlHyE0EHA135BMnmDo23DIlDl8l43RKUIFLIeB9gKWXQ/exec";
+
 fetch(url)
-.then(r=>r.json())
-.then(data=>{
+.then(response => response.json())
+.then(data => {
 
-console.log(data);
+    let html = "";
 
-let table="<tr>";
+    // Tiêu đề bảng
+    html += "<tr>";
+    Object.keys(data[0]).forEach(col => {
+        html += `<th>${col}</th>`;
+    });
+    html += "</tr>";
 
-Object.keys(data[0]).forEach(col=>{
+    let thu = 0;
+    let chi = 0;
 
-table+="<th>"+col+"</th>";
+    // Nội dung bảng
+    data.forEach(row => {
 
-});
+        html += "<tr>";
 
-table+="</tr>";
+        Object.values(row).forEach(value => {
+            html += `<td>${value}</td>`;
+        });
 
-let thu=0;
-let chi=0;
+        html += "</tr>";
 
-data.forEach(row=>{
+        if (row.Loai === "Thu")
+            thu += Number(row.SoTien);
 
-table+="<tr>";
+        if (row.Loai === "Chi")
+            chi += Number(row.SoTien);
 
-Object.values(row).forEach(value=>{
+    });
 
-table+="<td>"+value+"</td>";
+    document.getElementById("tbl").innerHTML = html;
 
-});
+    document.getElementById("thu").innerHTML =
+        thu.toLocaleString("vi-VN");
 
-table+="</tr>";
+    document.getElementById("chi").innerHTML =
+        chi.toLocaleString("vi-VN");
 
-if(row.Loai=="Thu")
-    thu+=Number(row.SoTien);
-
-if(row.Loai=="Chi")
-    chi+=Number(row.SoTien);
-
-});
-
-document.getElementById("tbl").innerHTML=table;
-
-document.getElementById("thu").innerHTML=
-thu.toLocaleString();
-
-document.getElementById("chi").innerHTML=
-chi.toLocaleString();
-
-document.getElementById("sodu").innerHTML=
-(thu-chi).toLocaleString();
+    document.getElementById("sodu").innerHTML =
+        (thu - chi).toLocaleString("vi-VN");
 
 });
