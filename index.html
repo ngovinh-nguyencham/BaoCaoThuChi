@@ -1,43 +1,166 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="style.css">
+    <title>Dashboard Thu Chi</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<h1>Dashboard Thu Chi</h1>
+<div class="container py-4">
 
-<div class="cards">
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <div class="card">
-        <h3>Thu</h3>
-        <p id="thu">0</p>
+        <h2 class="fw-bold">
+            <i class="fa-solid fa-chart-column text-primary"></i>
+            Dashboard Thu Chi
+        </h2>
+
+        <select id="yearSelect" class="form-select w-auto"></select>
+
     </div>
 
-    <div class="card">
-        <h3>Chi</h3>
-        <p id="chi">0</p>
+    <div class="row g-3">
+
+        <div class="col-md-4">
+
+            <div class="card card-summary border-0 shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="icon bg-success">
+
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    </div>
+
+                    <div class="title">Tổng Thu</div>
+
+                    <div class="money text-success" id="thu">0 đ</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card card-summary border-0 shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="icon bg-danger">
+
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+
+                    </div>
+
+                    <div class="title">Tổng Chi</div>
+
+                    <div class="money text-danger" id="chi">0 đ</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card card-summary border-0 shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="icon bg-primary">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                    </div>
+
+                    <div class="title">Còn Lại</div>
+
+                    <div class="money text-primary" id="conlai">0 đ</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>Số dư</h3>
-        <p id="sodu">0</p>
+    <div class="card mt-4 shadow-sm">
+
+        <div class="card-header">
+
+            <b>Thu Chi Theo Tháng</b>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-hover mb-0">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Tháng</th>
+
+                        <th class="text-end">Thu</th>
+
+                        <th class="text-end">Chi</th>
+
+                        <th class="text-end">Còn Lại</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="card mt-4 shadow-sm">
+
+        <div class="card-header">
+
+            <b>Biểu đồ Thu - Chi 12 Tháng</b>
+
+        </div>
+
+        <div class="card-body">
+
+            <canvas id="chart" height="110"></canvas>
+
+        </div>
+
     </div>
 
 </div>
 
-<table id="tbl">
-
-</table>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
