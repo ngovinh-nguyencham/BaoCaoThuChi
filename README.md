@@ -1,2 +1,2 @@
-# Dashboard
-báo cáo thu chi
+# Xem báo cáo 
+chi tiết thu chi
