@@ -1,5 +1,5 @@
 const API =
-"https://script.google.com/macros/s/AKfycbyQdDWRX5nAaDxJUfSSjb3uLujlHyE0EHA135BMnmDo23DIlDl8l43RKUIFLIeB9gKWXQ/exec";
+"https://script.google.com/macros/s/AKfycbz38EtivtLolp3HS8Mw8k_T85NQlPcllX7uW-sPIzbPhW0JbQKdzJJHRelPRrstHxz58A/exec";
 
 let chart = null;
 
